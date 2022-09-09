@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httbin-journey
+  labels:
+    app: httbin-journey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httbin-journey
+  template:
+    metadata:
+      labels:
+        app: httbin-journey
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
